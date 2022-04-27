@@ -1,7 +1,4 @@
-﻿// Hi This is
-
-
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
 using System;
@@ -586,10 +583,6 @@ namespace _1.DemoQa
 
 
             #endregion
-
-            Driver.Manage().Timeouts().implicitlywait(5,TimeUnit.SECONDS);
-            IWebElement slider = Driver.FindElement(By.XPath("//*[@id='slider']/a"))
-            act.DragAndDropBy(Source, XOffset, YOffset).Perform();
 
 
             #endregion
