@@ -1,4 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿// Hi This is
+
+
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.Threading;
 using System;
@@ -28,8 +31,8 @@ namespace _1.DemoQa
 
 
             #region Elemenet
-            //Driver.FindElement(By.XPath("//h5[text()='Elements']")).Click();
-            //Thread.Sleep(200);
+            Driver.FindElement(By.XPath("//h5[text()='Elements']")).Click();
+            Thread.Sleep(200);
 
             #region Text Box
             //Console.Write("Test Case Started: ");
@@ -495,8 +498,10 @@ namespace _1.DemoQa
             #endregion
 
             #region Widgets
-            //Driver.FindElement(By.XPath("//div[text()='Widgets']")).Click();
-            //Thread.Sleep(200);
+            js.ExecuteScript("window.scrollBy(0,600)");
+            Thread.Sleep(200);
+            Driver.FindElement(By.XPath("//div[text()='Widgets']")).Click();
+            Thread.Sleep(200);
             #region Accordian
             //Thread.Sleep(200);
             //Driver.FindElement(By.XPath("//h5[text()='Widgets']")).Click();
@@ -538,7 +543,27 @@ namespace _1.DemoQa
             //Thread.Sleep(200);
             #endregion
 
-            #region Data Picker
+            #region Date Picker
+
+            Thread.Sleep(200);
+            Driver.FindElement(By.XPath("//span[text()='Date Picker']")).Click();
+            Thread.Sleep(2000);
+            Driver.FindElement(By.Id("datePickerMonthYearInput")).Clear();
+
+            //IWebElement element = new WebDriverWait(Driver, TimeSpan.FromSeconds(20)).Until(ExpectedConditions.ElementToBeClickable(By.Id("datePickerMonthYearInput"));
+            //element.Click();
+            //element.Clear();
+
+            //Thread.Sleep(2000);
+            Driver.FindElement(By.Id("datePickerMonthYearInput")).SendKeys("18/12/1998");
+            Thread.Sleep(200);
+
+            //Driver.FindElement(By.XPath("//*[@class='react-datepicker__year-select']/option[@value='2020']")).Click();
+            //Thread.Sleep(2000);
+
+            //js.ExecuteScript("Driver.FindElement("By.Id("datePickerMonthYear")"));
+
+
             #endregion
 
             #region Slider
@@ -562,7 +587,9 @@ namespace _1.DemoQa
 
             #endregion
 
-
+            Driver.Manage().Timeouts().implicitlywait(5,TimeUnit.SECONDS);
+            IWebElement slider = Driver.FindElement(By.XPath("//*[@id='slider']/a"))
+            act.DragAndDropBy(Source, XOffset, YOffset).Perform();
 
 
             #endregion
@@ -573,6 +600,11 @@ namespace _1.DemoQa
 
             #region Book Store Application
             #endregion
+
+            Thread.Sleep(2000);
+            Driver.Close();
+            Thread.Sleep(200);
+            Driver.Quit();
         }
     }
 }
